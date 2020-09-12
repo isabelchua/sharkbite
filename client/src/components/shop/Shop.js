@@ -6,7 +6,7 @@ import ShopContext from "../context/shopContext";
 import UserContext from "../context/userContext";
 import ReviewForm from "./ReviewForm";
 import SearchBar from "./SearchBar";
-import NavBar from "./NavBar";
+import NavBar from "../layout/NavBar";
 import { useParams } from "react-router-dom";
 import Footer from "./Footer";
 

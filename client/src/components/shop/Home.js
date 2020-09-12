@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import ShopContext from "../context/shopContext";
 import ShopCard from "./ShopCard";
 import Logo from "./Logo";
-import NavBar from "./NavBar";
+import NavBar from "../layout/NavBar";
 
 function Home() {
 	const shopContext = useContext(ShopContext);

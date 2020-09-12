@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import NavBar from "../shop/NavBar";
+import NavBar from "../layout/NavBar";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
