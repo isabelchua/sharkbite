@@ -16,6 +16,11 @@ import RegisterPlain from "./components/auth/RegisterPlain";
 import NavBar from "./components/layout/NavBar";
 import AlertState from "./components/context/alert/AlertState";
 import Alerts from "./components/layout/Alerts";
+import setAuthToken from "./utils/setAuthToken";
+
+if (localStorage.token) {
+	setAuthToken(localStorage.token);
+}
 
 function App() {
 	return (
