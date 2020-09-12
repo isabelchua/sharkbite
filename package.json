@@ -5,6 +5,7 @@
 	"main": "index.js",
 	"dependencies": {
 		"bcryptjs": "^2.4.3",
+		"concurrently": "^5.3.0",
 		"config": "^3.3.1",
 		"dotenv": "^8.2.0",
 		"express": "^4.17.1",
@@ -15,7 +16,11 @@
 	},
 	"devDependencies": {},
 	"scripts": {
-		"start": "nodemon server"
+		"start": "node server.js",
+		"server": "nodemon server.js",
+		"client": "npm start --prefix client",
+		"clientinstall": "npm install --prefix client",
+		"dev": "concurrently \"npm run server\" \"npm run client\""
 	},
 	"author": "",
 	"license": "ISC"

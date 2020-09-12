@@ -15,7 +15,7 @@ function Login() {
 		<div>
 			<NavBar />
 			<form onSubmit={handleSubmit(onSubmit)} noValidate>
-				<h3>Register</h3>
+				<h3>Login</h3>
 
 				<TextField
 					type="password"
