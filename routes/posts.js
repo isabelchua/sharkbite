@@ -55,8 +55,8 @@ router.post(
 	auth,
 	[
 		[
-			check("review", "Review is required").not().isEmpty(),
-			check("rating", "Rating is required").not().isEmpty()
+			check("review", "Review is required").not().isEmpty()
+			//,check("rating", "Rating is required").not().isEmpty()
 		]
 	],
 	async (req, res) => {
@@ -66,8 +66,10 @@ router.post(
 		}
 
 		const { review, rating, image } = req.body;
+		console.log(req.user.id);
 		try {
 			const shop = await Shop.findById(req.params.id);
+			console.log(shop);
 
 			const post = new Post({
 				review: review,

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import ShopBanner from "./ShopBanner";
 import Post from "./Post";
 import PostContext from "../context/postContext";
@@ -9,6 +9,8 @@ import SearchBar from "./SearchBar";
 import NavBar from "../layout/NavBar";
 import { useParams } from "react-router-dom";
 import Footer from "./Footer";
+import AuthContext from "../context/auth/authContext";
+import Spinner from "../layout/Spinner";
 
 import Logo from "./Logo";
 
@@ -16,12 +18,26 @@ function Shop() {
 	const postContext = useContext(PostContext);
 	const shopContext = useContext(ShopContext);
 	const userContext = useContext(UserContext);
+	const authContext = useContext(AuthContext);
 
-	const { posts } = postContext;
+	// useEffect(() => {
+	// 	authContext.loadUser();
+	// 	// eslint-disable-next-line
+	// }, []);
+
+	useEffect(() => {
+		getPosts();
+		//eslint-disable-next-line
+	}, []);
+	const { posts, getPosts, loading } = postContext;
 	const { shop } = shopContext;
 	const { user } = userContext;
 
 	const { id, name } = useParams();
+
+	if (posts !== null && posts.length === 0 && !loading) {
+		return <h4>No reviews yet be the first one to write a review!</h4>;
+	}
 
 	// console.log(
 	// 	food
@@ -54,15 +70,20 @@ function Shop() {
 				<div className="sort">
 					<p className="right">Sort by Highest Rated</p>
 				</div>
-				{posts
-					.filter(foo => foo.shopid === id)
-					.map(foo => (
-						<Post
-							key={foo.id}
-							posts={foo}
-							user={user.find(user => foo.userid === user.id)}
-						/>
-					))}
+				{posts !== null && !loading ? (
+					posts
+						.filter(foo => foo.shopid === id)
+						.map(foo => (
+							<Post
+								key={foo.id}
+								posts={foo}
+								user={user.find(user => foo.userid === user.id)}
+							/>
+						))
+				) : (
+					<Spinner />
+				)}
+
 				<Footer />
 			</div>
 		</div>

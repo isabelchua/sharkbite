@@ -22,10 +22,9 @@ function ReviewForm() {
 	const [post, setPost] = useState({
 		review: "",
 		rating: 0,
-		image: "",
-		type: "member",
-		shopid: id,
-		userid: "1"
+		//image: "",
+		shopid: id
+		//userid: "1"
 	});
 
 	const { review, rating, image } = post;
@@ -74,8 +73,9 @@ function ReviewForm() {
 	const onSubmit = e => {
 		e.preventDefault();
 		//console.log(post);
-		if (!preview) return;
-		uploadImage(preview);
+		if (preview) {
+			uploadImage(preview);
+		}
 		addPost(post);
 	};
 

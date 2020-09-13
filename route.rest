@@ -57,11 +57,11 @@ POST http://localhost:5000/api/auth
 
 ###
 // POST a REVIEW in a SHOP
-POST http://localhost:5000/api/posts/5f5adabae9e6931cbcea8501
+POST http://localhost:5000/api/posts/5f5ada9ee9e6931cbcea8500
 Content-Type: application/json
 
 {
-	"review": "yum!",
+	"review": "I loved their food!",
 	"rating": 4
 }
 
